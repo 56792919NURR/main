@@ -820,20 +820,6 @@ install_openvpn() {
 if [[ $(lsb_release -rs) == "18"* ]] || [[ $(lsb_release -rs) == "20"* ]]; then
 	sudo DEBIAN_FRONTEND=noninteractive apt-get install openvpn easy-rsa -y
 	mkdir -p /etc/openvpn/server/
-/bin/cat <<"EOM" >/etc/systemd/resolved.conf
-[Resolve]
-DNS=8.8.8.8
-#FallbackDNS=
-#Domains=
-#LLMNR=no
-#MulticastDNS=no
-#DNSSEC=no
-#DNSOverTLS=no
-#Cache=no
-DNSStubListener=no
-#ReadEtcHosts=yes
-EOM
-sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 else
 	echo "DNSStubListener=no" >> /etc/systemd/resolved.conf
