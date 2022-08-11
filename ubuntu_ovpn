@@ -711,7 +711,7 @@ install_openvpn() {
 if [[ $(lsb_release -rs) == "18"* ]] || [[ $(lsb_release -rs) == "20"* ]]; then
 	sudo DEBIAN_FRONTEND=noninteractive apt-get install openvpn easy-rsa -y
 	mkdir -p /etc/openvpn/server/
-if nc -z localhost 53; then
+if nc -z 127.0.0.53 53; then
 /bin/cat <<"EOM" >/etc/systemd/resolved.conf
 [Resolve]
 DNS=1.1.1.1
