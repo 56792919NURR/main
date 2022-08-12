@@ -1,5 +1,5 @@
-#rm -rf instal*
-#rm -rf .instal*
+rm -rf instal*
+rm -rf .instal*
 
 system_update () {
 sudo timedatectl set-timezone Asia/Manila
